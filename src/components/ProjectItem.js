@@ -4,26 +4,26 @@ class ProjectItem extends React.Component {
   render() {
     return (
       <div className="project">
-        <div className="img-container">
+        {/* <div className="img-container">
           <img className="project-img" src={this.props.project.image} alt="" />
-        </div>
+        </div> */}
 
         <div>
-          <h1 className="project-title">{this.props.project.name}</h1>
+          <h1 className="project-title">{this.props.project.title}</h1>
           <p className="project-shortDesc">
-            <i>"{this.props.project.descShort}"</i>{" "}
+            <i>"{this.props.project.oneLiner}"</i>{" "}
           </p>
-          <p className="project-desc">{this.props.project.desc}</p>
+          <p className="project-desc">{this.props.project.description}</p>
           <div className="project-bottom">
             <div className="tag">
-              {this.props.project.tags.map(tag => (
+              {this.props.project.tags.map((tag) => (
                 <p key={tag} className="tag-item">
                   {tag}
                 </p>
               ))}
             </div>
 
-            <ul className="buttons">
+            {/* <ul className="buttons">
               <li className="link-item">
                 <a
                   className="link"
@@ -44,7 +44,7 @@ class ProjectItem extends React.Component {
                   <img src={require("../images/svg/chrome.svg")} alt="Github" />
                 </a>
               </li>
-            </ul>
+            </ul> */}
           </div>
         </div>
       </div>

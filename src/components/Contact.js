@@ -1,107 +1,109 @@
 import React from "react";
 import markerImage from "../images/svg/location2.svg";
+import { useSelector } from "react-redux";
 
-class Contact extends React.Component {
-  componentWillMount() {
-    this.loadMap();
-  }
+const Contact = () => {
+  // componentWillMount() {
+  // this.loadMap();
+  // }
+  const contact = useSelector((state) => state.contact);
 
-  loadMap = () => {
+  const loadMap = () => {
     loadScript(
       "https://maps.googleapis.com/maps/api/js?key=AIzaSyCgByDyHejXcnEYiAohk2kMYN0npMXsJTc&callback=initMap"
     );
     window.initMap = this.initMap;
   };
 
-  initMap = () => {
+  const initMap = () => {
     var styles = [
       {
         featureType: "administrative",
         elementType: "labels.text.fill",
         stylers: [
           {
-            color: "#444444"
-          }
-        ]
+            color: "#444444",
+          },
+        ],
       },
       {
         featureType: "landscape",
         elementType: "all",
         stylers: [
           {
-            color: "#f2f2f2"
-          }
-        ]
+            color: "#f2f2f2",
+          },
+        ],
       },
       {
         featureType: "poi",
         elementType: "all",
         stylers: [
           {
-            visibility: "off"
-          }
-        ]
+            visibility: "off",
+          },
+        ],
       },
       {
         featureType: "poi",
         elementType: "labels.text",
         stylers: [
           {
-            visibility: "off"
-          }
-        ]
+            visibility: "off",
+          },
+        ],
       },
       {
         featureType: "road",
         elementType: "all",
         stylers: [
           {
-            saturation: -100
+            saturation: -100,
           },
           {
-            lightness: 45
-          }
-        ]
+            lightness: 45,
+          },
+        ],
       },
       {
         featureType: "road.highway",
         elementType: "all",
         stylers: [
           {
-            visibility: "simplified"
-          }
-        ]
+            visibility: "simplified",
+          },
+        ],
       },
       {
         featureType: "road.arterial",
         elementType: "labels.icon",
         stylers: [
           {
-            visibility: "off"
-          }
-        ]
+            visibility: "off",
+          },
+        ],
       },
       {
         featureType: "transit",
         elementType: "all",
         stylers: [
           {
-            visibility: "off"
-          }
-        ]
+            visibility: "off",
+          },
+        ],
       },
       {
         featureType: "water",
         elementType: "all",
         stylers: [
           {
-            color: "#dbdbdb"
+            color: "#dbdbdb",
           },
           {
-            visibility: "on"
-          }
-        ]
-      }
+            visibility: "on",
+          },
+        ],
+      },
     ];
     var contentString = `<div>
   <h3 class="map-heading">I am from here</h3>
@@ -109,67 +111,94 @@ class Contact extends React.Component {
  </div>`;
 
     var infowindow = new window.google.maps.InfoWindow({
-      content: contentString
+      content: contentString,
     });
 
     var map = new window.google.maps.Map(document.getElementById("map"), {
       center: {
         lat: 19.2183,
-        lng: 72.9781
+        lng: 72.9781,
       },
       zoom: 12,
       styles: styles,
       disableDefaultUI: true,
       //   gestureHandling: "greedy",
-      mapTypeControl: false
+      mapTypeControl: false,
     });
 
     var marker = new window.google.maps.Marker({
       position: {
         lat: 19.2219,
-        lng: 72.9791
+        lng: 72.9791,
       },
       map: map,
       draggable: true,
       icon: markerImage,
       title: "Thane",
-      animation: window.google.maps.Animation.DROP
+      animation: window.google.maps.Animation.DROP,
     });
 
-    marker.addListener("click", function() {
+    marker.addListener("click", function () {
       infowindow.open(map, marker);
     });
   };
 
-  render() {
-    return <div className="contact">
-        <div id="map" />
-
-        <ul className="contact-list">
+  return (
+    <div className="contact">
+      {/* <div id="map" /> */}
+      <div className="mobile-email" style={{ marginLeft: "20px" }}>
+        <h3>Mobile: {contact.mobile}</h3>
+        <h3>Email: {contact.mail}</h3>
+      </div>
+      <ul className="contact-list">
+        {contact.mail && (
           <li className="contact-item">
-            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=bhosaletejas93@gmail.com" target="_blank" rel="noopener noreferrer">
+            <a
+              href={`https://mail.google.com/mail/?view=cm&fs=1&to=${contact.mail}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <img src={require("../images/svg/mail.svg")} alt="Mail" />
             </a>
           </li>
+        )}
+        {contact.github && (
           <li className="contact-item">
-            <a href="https://github.com/bhosaleT" target="_blank" rel="noopener noreferrer">
+            <a href={contact.github} target="_blank" rel="noopener noreferrer">
               <img src={require("../images/svg/github.svg")} alt="Github" />
             </a>
           </li>
+        )}
+        {contact.linkedin && (
           <li className="contact-item">
-          <a href="https://www.linkedin.com/in/tejas-bhosale/" target="_blank" rel="noopener noreferrer">
+            <a
+              href={contact.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <img src={require("../images/svg/linkedin.svg")} alt="Linkedin" />
             </a>
           </li>
+        )}
+
+        {contact.instagram && (
           <li className="contact-item">
-          <a href="https://www.instagram.com/wittystarlord/?hl=en" target="_blank" rel="noopener noreferrer">
-              <img src={require("../images/svg/instagram.svg")} alt="Instagram" />
+            <a
+              href={contact.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src={require("../images/svg/instagram.svg")}
+                alt="Instagram"
+              />
             </a>
           </li>
-        </ul>
-      </div>;
-  }
-}
+        )}
+      </ul>
+    </div>
+  );
+};
 
 export default Contact;
 

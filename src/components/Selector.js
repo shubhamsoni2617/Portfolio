@@ -8,12 +8,12 @@ class Selector extends React.Component {
       { name: "Skills" },
       { name: "Projects" },
       { name: "Contact" },
-      { name: "Blog" }
+      { name: "Blog" },
     ];
     return (
-      <div className="container">
+      <div className="container noSelect">
         <ul className="selector-list">
-          {selectors.map(index => (
+          {selectors.map((index) => (
             <li
               key={index.name}
               style={
@@ -22,7 +22,7 @@ class Selector extends React.Component {
                       background: "#272727",
                       color: "#ffffff",
                       textTransform: "uppercase",
-                      padding: 10
+                      padding: 10,
                     }
                   : null
               }

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="13.606" height="17.366" viewBox="0 0 13.606 17.366">
+  <g id="Final-Designs" transform="translate(-1.302 -1.296)">
+    <g id="Overview-expanded-II" transform="translate(-626 -331)">
+      <g id="Top-Banner" transform="translate(255 64)">
+        <g id="Tabs" transform="translate(181 267)">
+          <g id="Group-3" transform="translate(114)">
+            <g id="security-icn" transform="translate(77 1)">
+              <path id="Shape" d="M13.041,3.434,6.667.037a.317.317,0,0,0-.3,0l-6.2,3.4A.317.317,0,0,0,0,3.714V8.151a9.186,9.186,0,0,0,5.506,8.408l.86.375a.317.317,0,0,0,.253,0l.969-.419a9.168,9.168,0,0,0,5.618-8.452V3.714a.317.317,0,0,0-.168-.28Zm-.467,4.629a8.535,8.535,0,0,1-5.232,7.868h0L6.5,16.3l-.733-.32A8.551,8.551,0,0,1,.637,8.151V3.9L6.519.678,12.574,3.9Z" transform="translate(0.5 0.5)" fill="#ff5858" stroke="#ff5858" stroke-width="0.4"/>
+              <path id="close" d="M3,2.668,4.967.7A.328.328,0,0,0,4.5.232L2.532,2.2.56.232A.328.328,0,0,0,.1.7L2.068,2.668.1,4.639A.328.328,0,1,0,.56,5.1L2.532,3.131,4.5,5.1a.328.328,0,1,0,.464-.464Zm0,0" transform="translate(4.524 6.364)" fill="#ff5858" stroke="#ff5858" stroke-width="0.4"/>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

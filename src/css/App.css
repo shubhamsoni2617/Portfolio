@@ -12,7 +12,10 @@ body {
   width: 800px;
   justify-items: center;
 }
-
+.textarea[contenteditable]:empty::before {
+  content: "I'm a newly graduated web developer offering enthusiasm and understanding of Front-end frameworks like React, Redux and advanced CSS techniques and back-end frameworks like Node.js and mongoDB. I will bring to the table the ability to design and develop beautiful and functional websites using the latest technologies and web guidelines.";
+  color: gray;
+}
 @media (max-width: 1200px) {
   .header {
     margin: 10px auto;
@@ -219,7 +222,11 @@ li {
   line-height: 1.5;
   width: 800px;
 }
-
+.resize-about {
+  width: 500px;
+  height: 300px;
+  margin-top: 20px;
+}
 @media (max-width: 1200px) {
   .about {
     display: flex;
@@ -228,6 +235,11 @@ li {
     justify-content: center;
     align-items: center; */
     width: 600px;
+  }
+  .resize-about {
+    width: 300px;
+    height: 500px;
+    margin-top: 20px;
   }
 }
 
@@ -240,7 +252,11 @@ li {
     align-items: center;
     width: 500px;
   }
-
+  .resize-about {
+    width: 500px;
+    height: 300px;
+    margin-top: 20px;
+  }
   .profile-image {
     width: auto;
     height: 250px;
@@ -261,7 +277,11 @@ li {
     align-items: center;
     width: 300px;
   }
-
+  .resize-about {
+    width: 300px;
+    height: 500px;
+    margin-top: 20px;
+  }
   .profile-image {
     width: auto;
     height: 200px;
@@ -526,6 +546,20 @@ li {
 .skill-list {
   padding: 0;
   width: 100%;
+}
+
+.skill-edit-item {
+  font-size: 17px;
+  padding: 5px 15px;
+  color: #272727;
+  overflow: hidden;
+  margin: 0 auto 5px auto;
+  white-space: nowrap;
+  background-color: #eeeeee;
+  /* text-align: center; */
+  /* animation: fadeIn 0.5s linear; */
+  animation-fill-mode: both;
+  box-shadow: 0 0.001px 0.002px rgba(0, 0, 0, 0.7);
 }
 
 .skill-item {
@@ -987,6 +1021,9 @@ li {
 
 .content {
   min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .content-inside {

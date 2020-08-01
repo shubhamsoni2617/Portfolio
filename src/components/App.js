@@ -1,62 +1,43 @@
-import React, { Component } from "react";
-import "../css/App.css";
-import Header from "./Header";
-import Selector from "./Selector";
-import About from "./About";
-import Blog from "./Blog";
-import Contact from "./Contact";
-import Education from "./Education";
-import Projects from "./Projects";
-import Skills from "./Skills";
+import React, { useEffect } from "react";
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Switch,
+  useParams,
+} from "react-router-dom";
+import Home from "./Home";
+import Login from "./Login/index";
+import { useDispatch } from "react-redux";
+import axios from "axios";
 
-class App extends Component {
-  state = {
-    selectedSection: "About"
-  };
-  onSelect = section => {
-    this.setState({
-      selectedSection: section
-    });
-  };
-
-  render() {
-    let selectedSection = this.state.selectedSection;
-
-    function showSection() {
-      console.log("StateChanged");
-      switch (selectedSection) {
-        case "About":
-          return <About />;
-        case "Education":
-          return <Education />;
-        case "Skills":
-          return <Skills />;
-        case "Projects":
-          return <Projects />;
-        case "Blog":
-          return <Blog />;   
-        case "Contact":
-          return <Contact />;
-        default:
-          return <h3>Something went wrong</h3>;
-      }
-    }
-
-    return (
-      <div>
-        <div className="content">
-          <Header />
-          <div className="content-inside">
-            <Selector
-              onSelect={this.onSelect}
-              selectedSection={this.state.selectedSection}
-            />
-            {showSection()}
-          </div>
-        </div>
-      </div>
-    );
-  }
-}
+const App = () => {
+  // const dispatch = useDispatch();
+  // let { username } = useParams();
+  // console.log("username", username);
+  // const login = async () => {
+  //   try {
+  //     let { data } = await axios.post("/login");
+  //     dispatch(setLoggedIn(true));
+  //     console.log("res", data);
+  //   } catch (error) {
+  //     console.log("err13", error);
+  //   }
+  // };
+  // useEffect(() => {
+  //   login();
+  // }, []);
+  return (
+    <Router>
+      <Link to="/">Home</Link>
+      <Link to="/login">Login</Link>
+      <Switch>
+        <Route exact path="/login" exact component={Login} />
+        <Route exact path="/:username" exact component={Home} />
+        <Route exact path="/" exact component={() => <p>11111</p>} />
+      </Switch>
+    </Router>
+  );
+};
 
 export default App;
